@@ -17,6 +17,7 @@ if (Meteor.isClient) {
       ecreator = Meteor.user();
       Events.insert({creator: ecreator, name: ename, description: edesc, start_time: estart, end_time: eend, longitude: elong, latitude: elat, going: [ecreator]});
       $('#newEventInputs').fadeOut();
+      $('.showNewEventFields').show();
     },
     'click .showNewEventFields' : function() {
       $('.showNewEventFields').hide();
