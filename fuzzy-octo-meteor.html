@@ -13,6 +13,24 @@
       <button class='event_submit'>Create</button> <input type="Reset" value="Cancel" class='resetForm' /> <br />
   </div>
   <button class='showNewEventFields'>Create new Event</button>
+  <table>
+      <thead>
+          <th>Name</th>
+          <th></th>
+      </thead>
+      <tbody>
+          {{#each event_list}}
+            {{> display_event}}
+          {{/each}}
+      </tbody>
+  </table>
+</template>
+
+<template name="display_event">
+    <tr>
+        <td>{{name}}</td>
+        <td><button class='attendEventButton' data={{_id}}>Attend</button></td>
+    </tr>
 </template>
 
 <head>

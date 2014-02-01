@@ -37,6 +37,21 @@ if (Meteor.isClient) {
   });
 }
 
+Template.display_event.events({
+  'click .attendEventButton' : function(event) {
+      var unique_identifier = $(event.target).attr('data');
+      loca
+      // add the logged in user to the event
+      Events.update({_id: unique_identifier}, {'$push':{'going':Meteor.user}});
+      console.log("updated");
+    }
+});
+
+Template.hello.event_list = function() {
+  // get all the events
+  return Events.find();
+}
+
 if (Meteor.isServer) {
   Meteor.startup(function () {
     // code to run on server at startup
@@ -48,7 +63,6 @@ if (Meteor.isServer) {
 $(document).ready(function() {
   // hide new event inputs when it loads
   $('#newEventInputs').hide();
-
 });
 
 
