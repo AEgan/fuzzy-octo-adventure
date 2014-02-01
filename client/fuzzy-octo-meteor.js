@@ -23,9 +23,16 @@ if (Meteor.isClient) {
       $('.showNewEventFields').hide();
       $('#newEventInputs').fadeIn();
     },
-    'click .resetForm' : function() {
+    'click .resetForm' : function(event) {
       $('.showNewEventFields').show();
       $('#newEventInputs').fadeOut();
+      // because the reset default functionality won't work
+      $('.event_name').val("");
+      $('.event_description').val("");
+      $('.event_start_date').val("");
+      $('.event_end_date').val("");
+      $('.event_longitude').val("");
+      $('event_latitude').val("");
     }
   });
 }
