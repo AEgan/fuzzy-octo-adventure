@@ -8,7 +8,15 @@ if (Meteor.isClient) {
 
   Template.hello.events({
     'click .event_submit' : function () {
-      alert('here');
+      ename  = $('.event_name').val();
+      edesc  = $('.event_description').val();
+      estart = $('.event_start_date').val();
+      eend   = $('.event_end_date').val();
+      elong  = $('.event_longitude').val();
+      elat   = $('event_latitude').val();
+      ecreator = Meteor.user();
+      Events.insert({creator: ecreator, name: ename, description: edesc, start_time: estart, end_time: eend, longitude: elong, latitude: elat, going: [ecreator]});
+      $('#newEventInputs').fadeOut();
     },
     'click .showNewEventFields' : function() {
       $('.showNewEventFields').hide();
