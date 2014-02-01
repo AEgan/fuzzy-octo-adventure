@@ -1,12 +1,23 @@
 <template name="hello">
-  <h1>Hello World!</h1>
-  {{greeting}}
-  <input type="button" value="Click" />
+  <h1>Welcome!</h1>
+  {{loginButtons}}
+  <br />
+  <div id='newEventInputs'>
+      Name <input type='text' class='event_name'> <br />
+      Description <textarea class='event_description'></textarea> <br />
+      Start Time <input type='datetime-local' class='event_start_date' /> <br />
+      End Time <input type='datetime-local' class='event_end_date'/> <br />
+      <!-- These should be fixed later with current location or clicking on a map or something -->
+      Longitude <input type='number' class='event_longitude' step='0.00000001' /> <br />
+      Latitude <input type='number' class='event_latitude' step='0.00000001' /> <br />
+      <button class='event_submit'>Create</button> <button class='resetForm'>Cancel</button> <br />
+  </div>
+  <button class='showNewEventFields'>Create new Event</button>
 </template>
 
 <head>
     <title>Device Properties Example</title>
-
+    <script type="text/javascript" src='dom.js'></script>
     <script type="text/javascript" charset="utf-8" src="client/cordova.js"></script>
     <script type="text/javascript" charset="utf-8">
 
@@ -44,6 +55,7 @@
     </script>
 </head>
 <body>
+    {{> hello}}
     <p id="geolocation">Finding geolocation...</p>
 </body>
 
